@@ -1,5 +1,4 @@
 import os
-
 class file_handler:
     def __init__(self, path):
         self.path = path
