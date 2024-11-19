@@ -1,4 +1,4 @@
-class QuickBooksConnector:
+elass QuickBooksConnector:
     def __init__(self):
         self.client = QuickBooks(
             client_id=os.getenv("CLIENT_ID"),
