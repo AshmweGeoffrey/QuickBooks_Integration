@@ -1,4 +1,4 @@
-elass QuickBooksConnector:
+class QuickBooksConnector:
     def __init__(self):
         self.client = QuickBooks(
             client_id=os.getenv("CLIENT_ID"),
@@ -7,4 +7,3 @@ elass QuickBooksConnector:
             refresh_token=os.getenv("REFRESH_TOKEN"),
             company_id=os.getenv("COMPANY_ID"),
         )
-        
