@@ -1,0 +1,25 @@
+!!Important
+----------------
+
+|>Set the env variables of your Api Config Or Set it in src/Utility_Test/QuickBook_utilities.py Replace os.getenv() with corresponding config
+
+
+$ export CLIENT_ID="your_client_id"
+$ export CLIENT_SECRET="your_client_secret"
+$ export REALM_ID="your_realm_id"
+$ export REFRESH_TOKEN="your_refresh_token"
+$ python -m venv quickbook_env
+$ source quickbook_env/bin/activate  # or quickbook_env\Scripts\activate on Windows
+(quickbook_env) $ pip install -r requirement.txt
+(quickbook_env) $ python run.py
+Welcome to the QuickBooks Script
+This script will parse QuickBooks files and perform various operations on them.
+Starting the script...
+Please enter the location of the QuickBooks files to be parsed.
+The files should be in .pdf format.
+Example locations:
+  - Linux: /home/username/Downloads/QuickBookFiles
+  - Windows: C:/Users/username/Downloads/QuickBookFiles
+Enter the location of the QuickBooks files: /home/username/Downloads/QuickBookFiles
+Files parsed successfully.
+(quickbook_env) $ deactivate

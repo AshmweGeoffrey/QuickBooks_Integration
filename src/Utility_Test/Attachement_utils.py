@@ -1,18 +1,25 @@
-
 import os
 from quickbooks import QuickBooks
 from quickbooks.objects.attachable import Attachable, AttachableRef
-def check_invoice_attachments(invoice_id, quickbooks_client):
+
+def check_invoice_attachments(invoice_id: str, quickbooks_client: QuickBooks) -> dict:
     """
     Check if an invoice has attachments and return their download URLs.
-    
-    :param invoice_id: ID of the invoice
-    :param quickbooks_client: QuickBooks client
-    :return: Dictionary with attachment download URLs and existence flag
+
+    Args:
+        invoice_id (str): ID of the invoice.
+        quickbooks_client (QuickBooks): QuickBooks client instance.
+
+    Returns:
+        dict: A dictionary with attachment download URLs and existence flag.
     """
     try:
         # Query for attachments related to the specified invoice
-        query = f"SELECT * FROM Attachable WHERE AttachableRef.EntityRef.type = 'Invoice' AND AttachableRef.EntityRef.value = '{invoice_id}'"
+        query = f"""
+        SELECT * FROM Attachable 
+        WHERE AttachableRef.EntityRef.type = 'Invoice' 
+        AND AttachableRef.EntityRef.value = '{invoice_id}'
+        """
         attachments_response = quickbooks_client.query(query)
 
         # Initialize the result
@@ -35,14 +42,18 @@ def check_invoice_attachments(invoice_id, quickbooks_client):
             'has_attachments': False,
             'error': str(e)
         }
-def upload_invoice_pdf(quickbooks_client, invoice_id, pdf_path):
+
+def upload_invoice_pdf(quickbooks_client: QuickBooks, invoice_id: str, pdf_path: str) -> dict:
     """
     Upload a single PDF attachment to a specific invoice in QuickBooks.
-    
-    :param quickbooks_client: QuickBooks client instance
-    :param invoice_id: ID of the invoice to attach the file to
-    :param pdf_path: Full path to the PDF file
-    :return: Dictionary with upload status and details
+
+    Args:
+        quickbooks_client (QuickBooks): QuickBooks client instance.
+        invoice_id (str): ID of the invoice to attach the file to.
+        pdf_path (str): Full path to the PDF file.
+
+    Returns:
+        dict: A dictionary with upload status and details.
     """
     try:
         # Validate QuickBooks client
