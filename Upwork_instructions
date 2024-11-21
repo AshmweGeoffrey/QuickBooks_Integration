@@ -1,8 +1,0 @@
-Looking for someone to create a simple script (PHP, PowerShell, or any language) to help match files to QuickBooks transactions. The script will:
-1. Scan a folder for PDF files.
-2. Use the file name (formatted as YYYY-MM-DD_Amount_Supplier.pdf) to extract the date and amount—no need to check file content.
-3. Search QuickBooks for a matching transaction (date ±3 days, exact amount).
-4. If a match is found, check existing QuickBooks attachments. If the file is new, attach it to the transaction.
-
-
-This is a straightforward starter project, and we’ll take care of the rest. No advanced experience required—just get the basics working!
